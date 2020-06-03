@@ -3,6 +3,7 @@ services:
 
   nginx:
     container_name: nginx
+    restart: always
     image: nginx:mainline-alpine
     ports:
       - "80:80"
@@ -14,6 +15,7 @@ services:
 
   app:
     container_name: app
+    restart: always
     image: php:7-fpm
     volumes:
       - ./app:/app
@@ -26,6 +28,7 @@ services:
       - mysql
 
   mysql:
+    restart: always
     image: mysql:latest
     ports:
       - "3306:3306"
