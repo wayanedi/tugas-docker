@@ -15,8 +15,7 @@ services:
 
   app:
     container_name: app
-    restart: always
-    image: php:7-fpm
+    build: './php/'
     volumes:
       - ./app:/app
     environment:
