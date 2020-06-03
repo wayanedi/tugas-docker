@@ -32,7 +32,7 @@ services:
       MYSQL_ROOT_PASSWORD: mypw
       MYSQL_DATABASE: db-tugas5
     volumes:
-      - dataku:/var/lib/mysql
+      - db-tugas5:/var/lib/mysql
       - ./sql:/docker-entrypoint-initdb.d
 volumes:
   db-tugas5:
