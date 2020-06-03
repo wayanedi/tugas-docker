@@ -1,5 +1,5 @@
 <?php
-	$server = 'localhost';
+	$server = 'mysql';
 	$user = 'root';
 	$pass = 'mypw';
 	$db = 'db-tugas5';
