@@ -1,4 +1,4 @@
-USE dummy;
+USE db-tugas5;
 CREATE TABLE `combo` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `value` varchar(5) NOT NULL
