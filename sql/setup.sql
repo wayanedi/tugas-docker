@@ -31,7 +31,6 @@ CREATE TABLE `pendidikan` (
   `tahun_akhir` year(4) NOT NULL,
   `nilai_akhir` decimal(10,0) NOT NULL,
   `deskripsi` varchar(20) NOT NULL,
-  `combo_box_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
