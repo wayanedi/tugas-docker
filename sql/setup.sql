@@ -1,6 +1,6 @@
 USE dummy;
 CREATE TABLE `combo` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `value` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -14,7 +14,7 @@ INSERT INTO `combo` (`id`, `value`) VALUES
 
 
 CREATE TABLE `film` (
-  `film_id` int(11) NOT NULL,
+  `film_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `judul` varchar(30) NOT NULL,
   `link` varchar(30) NOT NULL,
   `foto_poster` longblob NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE `film` (
 
 
 CREATE TABLE `pendidikan` (
-  `pendidikan_id` int(11) NOT NULL,
+  `pendidikan_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `nama_sekolah` varchar(30) NOT NULL,
   `jenis_pendidikan` varchar(20) NOT NULL,
   `tahun_awal` year(4) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `pendidikan` (
 
 
 CREATE TABLE `skills` (
-  `skills_id` int(11) NOT NULL,
+  `skills_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `nama_skills` varchar(20) NOT NULL,
   `penguasaan` varchar(10) NOT NULL,
   `user_id` int(11) NOT NULL
@@ -48,42 +48,5 @@ CREATE TABLE `skills` (
 CREATE TABLE `user` (
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-ALTER TABLE `combo`
-  ADD PRIMARY KEY (`id`);
-
-
-ALTER TABLE `film`
-  ADD PRIMARY KEY (`film_id`);
-
-ALTER TABLE `pendidikan`
-  ADD PRIMARY KEY (`pendidikan_id`);
-
-
-ALTER TABLE `skills`
-  ADD PRIMARY KEY (`skills_id`);
-
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `combo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
-ALTER TABLE `film`
-  MODIFY `film_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
-
-ALTER TABLE `pendidikan`
-  MODIFY `pendidikan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
-
-ALTER TABLE `skills`
-  MODIFY `skills_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
-
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
