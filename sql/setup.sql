@@ -37,12 +37,6 @@ CREATE TABLE `pendidikan` (
 
 
 
-INSERT INTO `pendidikan` (`pendidikan_id`, `nama_sekolah`, `jenis_pendidikan`, `tahun_awal`, `tahun_akhir`, `nilai_akhir`, `deskripsi`, `combo_box_id`, `user_id`) VALUES
-(4, 'Duta Wacana', 'S1', 2017, 2021, '4', 'Test doang', 0, 0),
-(5, 'SMA 5', 'SMA', 2014, 2017, '80', 'ya gitulah', 0, 0);
-
-
-
 CREATE TABLE `skills` (
   `skills_id` int(11) NOT NULL,
   `nama_skills` varchar(20) NOT NULL,
@@ -51,22 +45,11 @@ CREATE TABLE `skills` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-
-INSERT INTO `skills` (`skills_id`, `nama_skills`, `penguasaan`, `user_id`) VALUES
-(1, 'Bahasa inggris', '50%', 0),
-(3, 'bahasa indo', '30%', 0);
-
-
-
 CREATE TABLE `user` (
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-ALTER TABLE `biodata`
-  ADD PRIMARY KEY (`id`);
 
 
 ALTER TABLE `combo`
@@ -86,9 +69,6 @@ ALTER TABLE `skills`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `biodata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 ALTER TABLE `combo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
@@ -106,5 +86,4 @@ ALTER TABLE `skills`
 
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
 
