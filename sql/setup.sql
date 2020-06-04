@@ -1,4 +1,4 @@
-USE db-tugas5;
+USE dummy;
 CREATE TABLE `combo` (
   `id` int(11) NOT NULL,
   `value` varchar(5) NOT NULL
