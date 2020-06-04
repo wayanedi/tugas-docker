@@ -1,9 +1,8 @@
 <?php
+	$db = getenv('MYSQL_DATABASE');
 	$server = 'mysql';
-	$user = 'root';
-	$pass = 'mypw';
-	$db = 'db-tugas5';
-	$port = '3306';
+	$user = getenv('MYSQL_USER');
+	$pass = getenv('MYSQL_PASSWORD');
 
-	$con = mysqli_connect($server,$user,$pass,$db, $port) or die("failed to connect");
+	$con = mysqli_connect($server,$user,$pass,$db) or die("failed to connect");
 ?>
