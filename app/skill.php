@@ -56,12 +56,7 @@
 </head>
 <body>
 	<header>
-		<h3 style="float: left;color: white; margin: 3px;">Selamat datang, <?php 
-			$sql2="SELECT * from biodata where id = '".$_SESSION["id"]."'";
-			$result2=mysqli_query($con,$sql2);
-			$data=mysqli_fetch_assoc($result2);
-			echo $data["nama_depan"]." ".$data["nama_belakang"];
-		 ?></h3>
+		<h3 style="float: left;color: white; margin: 3px;">Selamat datang</h3>
 		<a href="logout.php" id="logout" style="float: right;background: orange;padding: 2px 10px;border-radius: 3px;color: white;">Logout</a>
 	</header>
 	<body>
@@ -88,7 +83,7 @@
 			</tr>
 				<tbody>
 					<?php 
-						$sql="SELECT * from skills";
+						$sql="SELECT * from skills WHERE user_id='".$_SESSION['id']."'";
 						$result=mysqli_query($con,$sql);
 						while($data=mysqli_fetch_assoc($result)){
 							?>
