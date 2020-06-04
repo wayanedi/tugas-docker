@@ -11,7 +11,7 @@
 		$tahun_akhir=$_POST['tahun_akhir'];
 		$nilai_akhir=$_POST['nilai_akhir'];
 		$deskripsi=$_POST['deskripsi'];
-		$sql3="INSERT INTO pendidikan (nama_sekolah,jenis_pendidikan,tahun_awal,tahun_akhir,nilai_akhir,deskripsi) VALUES ('".$nama."','".$combo."','".$tahun_awal."','".$tahun_akhir."','".$nilai_akhir."','".$deskripsi."')";
+		$sql3="INSERT INTO pendidikan (nama_sekolah,jenis_pendidikan,tahun_awal,tahun_akhir,nilai_akhir,deskripsi, user_id) VALUES ('".$nama."','".$combo."','".$tahun_awal."','".$tahun_akhir."','".$nilai_akhir."','".$deskripsi."', '".$_SESSION['id']."')";
 		$result3=mysqli_query($con,$sql3);
 			if($result3){
 				?>

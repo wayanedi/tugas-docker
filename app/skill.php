@@ -7,7 +7,7 @@
 	if(isset($_POST["submit"])){
 		$nama=$_POST['nama'];
 		$penguasaan=$_POST['penguasaan'];
-		$sql1="INSERT INTO skills (nama_skills,penguasaan) values ('".$nama."','".$penguasaan."')";
+		$sql1="INSERT INTO skills (nama_skills,penguasaan,user_id) values ('".$nama."','".$penguasaan."', '".$_SESSION['id']."')";
 		$result1=mysqli_query($con,$sql1);
 			if($result1){
 				?>

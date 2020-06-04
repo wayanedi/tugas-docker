@@ -9,7 +9,7 @@
 		$judul=$_POST['judul'];
 		$link=$_POST['link'];
 		$foto = addslashes(file_get_contents($_FILES['file']['tmp_name']));
-		$sql1="INSERT INTO film (judul,link,foto_poster)  VALUES ('".$judul."','".$link."','".$foto."')";
+		$sql1="INSERT INTO film (judul,link,foto_poster, user_id)  VALUES ('".$judul."','".$link."','".$foto."', '".$_SESSION['id']."')";
 		$result1=mysqli_query($con,$sql1);
 			if($result1){
 				?>
