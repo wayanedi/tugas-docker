@@ -9,13 +9,9 @@
 		$retypePassword = $_POST['retypePassword'];
 
 		if($password == $retypePassword){
-
 			$sqlCek = "SELECT * FROM user WHERE Email = '".$username."'";
-
 			$hasil = mysqli_query($con, $sqlCek);
-
 			if(mysqli_num_rows($hasil)>0){
-
 				?>
 				<script>
 					alert("Email SUdah Terdaftar");
@@ -23,7 +19,6 @@
 				<?php
 			}
 			else{
-
 				$sql = "INSERT INTO user (Email,Password) VALUES ('".$username."','".$password."')";
 				$result = mysqli_query($con,$sql);
 				if($result){
@@ -31,7 +26,6 @@
 				}else{
 					echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 				}
-
 			}			
 		}
 		else{
