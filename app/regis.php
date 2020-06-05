@@ -12,7 +12,7 @@
 
 			$sqlCek = "SELECT * FROM user WHERE Email = '".$username."'";
 
-			$hasil = mysqli_query($con, $sql);
+			$hasil = mysqli_query($con, $sqlCek);
 
 			if(mysqli_num_rows($hasil)>0){
 
