@@ -5,22 +5,16 @@
 
 	if(isset($_POST['submit'])){
 
-			$username = $_POST['email'];
-			$password = $_POST['password'];
-			$sql = "select Email,Password from user where Email='".$username."' and Password='".$password."'";
-			$result = mysqli_query($con,$sql);
-			
+		$username = $_POST['email'];
+		$password = $_POST['password'];
+		$sql = "select * from user where Email='".$username."' and Password='".$password."'";
+		$result = mysqli_query($con,$sql);
 
-			$num = mysqli_num_rows($result);
-			$sql2 = "select id from user where email ='".$username."'";
-			$result2 = mysqli_query($con,$sql2);
-			$data = mysqli_fetch_assoc($result2);
-			
-			if($num==1){
-				$_SESSION['id']=$data['id'];
-				header("Location: pendidikan.php");
-			}
-			
+		if(mysqli_num_rows($result) >0){
+			$data = mysqli_fetch_assoc($result);
+			$_SESSION['id']=$data['id'];
+			header("Location: pendidikan.php");
+		}						
 	}
 ?>
 

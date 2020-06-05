@@ -4,17 +4,43 @@
 
 	if(isset($_POST['submit'])){
 
-			$username = $_POST['email'];
-			$password = $_POST['password'];
-			$sql = "INSERT INTO user (Email,Password) VALUES ('".$username."','".$password."') ";
-			$result = mysqli_query($con,$sql);
-			if($result){
-				header("location:index.php");
-			}else{
-				echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		$username = $_POST['email'];
+		$password = $_POST['password'];
+		$retypePassword = $_POST['retypePassword'];
+
+		if($password == $retypePassword){
+
+			$sqlCek = "SELECT * FROM user WHERE Email = '".$username."'";
+
+			$hasil = mysqli_query($con, $sql);
+
+			if(mysqli_num_rows($hasil)>0){
+
+				?>
+				<script>
+					alert("Email SUdah Terdaftar");
+				</script>
+				<?php
 			}
-			
-			
+			else{
+
+				$sql = "INSERT INTO user (Email,Password) VALUES ('".$username."','".$password."')";
+				$result = mysqli_query($con,$sql);
+				if($result){
+					header("location:index.php");
+				}else{
+					echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+				}
+
+			}			
+		}
+		else{
+			?>
+			<script>
+				alert("Password tidak sama");
+			</script>
+			<?php
+		}
 	}
 ?>
 
@@ -38,6 +64,11 @@
 			<div class="element-form">
 				<label>Password</label>
 				<span><input type="password" name="password" required="Password anda kosong"></span>
+			</div>
+
+			<div class="element-form">
+				<label>Retype Password</label>
+				<span><input type="password" name="retypePassword" required="Password anda kosong"></span>
 			</div>
 
 			<div class="element-form">
