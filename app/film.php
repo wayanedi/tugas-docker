@@ -9,21 +9,33 @@
 		$judul=$_POST['judul'];
 		$link=$_POST['link'];
 		$foto = addslashes(file_get_contents($_FILES['file']['tmp_name']));
-		$sql1="INSERT INTO film (judul,link,foto_poster, user_id)  VALUES ('".$judul."','".$link."','".$foto."', '".$_SESSION['id']."')";
-		$result1=mysqli_query($con,$sql1);
-			if($result1){
-				?>
-				<script>
-					alert("berhasil input");
-				</script>
-				<?php
-			}else{
-				?>
-				<script>
-					alert("gagal input");
-				</script>
-				<?php
-			}
+		
+
+		if (filter_var($link, FILTER_VALIDATE_URL)) {
+			$sql1="INSERT INTO film (judul,link,foto_poster, user_id)  VALUES ('".$judul."','".$link."','".$foto."', '".$_SESSION['id']."')";
+			$result1=mysqli_query($con,$sql1);
+				if($result1){
+					?>
+					<script>
+						alert("berhasil input");
+					</script>
+					<?php
+				}else{
+					?>
+					<script>
+						alert("gagal input");
+					</script>
+					<?php
+				}
+		  } else {
+			?>
+			<script>
+				alert("URL tidak valid");
+			</script>
+			<?php
+			
+		  }
+		
 	}
 	if(isset($_GET["id"])){
 		$sql3="DELETE FROM film where film_id='".$_GET['id']."'";
@@ -118,7 +130,7 @@
 				<span><input type="text" id="judul" name="judul" required="Harus ada judul"></input></span>
 			</div>
 			<div class="element-form">
-				<label>Link</label>
+				<label>Url</label>
 				<span><input type="text" id="link" name="link" required="Harus ada link"></input></span>
 			</div>
 			<div class="element-form">
